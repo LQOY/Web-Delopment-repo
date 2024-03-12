@@ -1,0 +1,67 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <img class="pic" src="1.GIF" alt="">
+    <button class="nextone">Next one</button>
+    
+    <script>
+        let data =[
+    {imgSrc:'1.GIF'
+    },
+    {imgSrc:'2.GIF'
+    },
+    {imgSrc:'3.GIF'
+    },
+    {imgSrc:'4.JPG'
+    },
+    {imgSrc:'5.GIF'
+    },
+    {imgSrc:'6.JPG'
+    },
+    {imgSrc:'7.GIF'
+    },
+    {imgSrc:'8.JPG'
+    },
+    {imgSrc:'9.GIF'
+    },
+    {imgSrc:'100.GIF'
+    }
+    ]
+        let pic =document.querySelector('.pic');
+        let btn =document.querySelector('.nextone');
+        //let i = 0; 如果想按一下按钮就下一张
+        //如果想按一下按钮随机一张：
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;}
+
+        btn.addEventListener('click', function()
+        {   
+        let random = getRandom(1, data.length - 1);
+        //console.log(random );
+        console.log( data);
+        if (data.length === 1){
+            btn.disabled=true;
+            return
+        }
+        //i++ 如果想按一下按钮就下一张
+        pic.src=data[random].imgSrc;
+        data.splice(random, 1);
+        
+        }      
+    
+    )
+        
+    </script>
+</body>
+</html>
